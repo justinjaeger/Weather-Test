@@ -1,10 +1,13 @@
-import React from 'react';
-import Component from '../components/Component';
+import React, { useState } from 'react';
 
-const Main = () => (
-  <div className="main">
-    <Component />
-  </div>
-);
+// component to get ALL data from our created DB
+const Main = () => {
+  // const [variable, func] = useState('');
+  // const [data]
+
+  return (
+    <div>this is Component</div>
+  );
+};
 
 export default Main;
