@@ -1,23 +1,177 @@
 // import fonts
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+// BREAKPOINTS
+$xsm: 350px;
+$phone: 580px;
+$tablet: 780px;
+$desktop: 1024px;
+
+// media queries
+@mixin xsm {
+  @media (max-width: $xsm) {
+    @content;
+  }
+}
+@mixin phone {
+  @media (max-width: $phone) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
 
 // declare colors
-$div-background: #7878805b; /*placeholder color*/
-$app-background: #2c2c2eff;
+$yellow: #f9db6d; /*placeholder color*/
+$sky-blue: #d1f9ff;
+$blue: #0bc7e3;
+$deep-blue: #05889c;
+$dark-blue: #1B2D48;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Oxygen';
+  color: $dark-blue;
+  outline-width: 0;
 }
 
 #App {
-  color: #ffffff;
-  background: $app-background;
-  border: 1px solid #e7e7e7;
-  box-shadow: 5px 5px 40px 5px #cecece;
+  display: block;
+  @include xsm { 
+    white-space: nowrap; 
+  }
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#search-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 40px;
+  margin: 20px;
+  max-width: 80%;
+  @include phone {
+    display: block;
+    margin-left: 10%;
+  }
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.search-area {
+  padding: 10px;
   border-radius: 5px;
-  margin: auto;
-  padding: 1%;
+  border: none;
+  font-size: 18px;
+  @include phone {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+#search-bar {
+  background-color: $blue;
+  color: white;
+  margin-right: 10px;
+}
+
+#check-weather-button {
+  background-color: $sky-blue;
+  font-weight: 700;
+  &:hover {
+    background-color: $blue;
+    color: white !important;
+  }
+};
+
+#error-message {
+  color: red;
+  display: block;
+  position: absolute;
+  margin-left: 10%;
+  top: -90px;
+  left: -10px;
+  // transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-size: 20px;
+}
+
+#weather-header {
+  display: block;
+  position: absolute;
+  margin-left: 10%;
+  top: -40px;
+  // transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-size: 25px;
+}
+
+#weather-body {
+  position: absolute;
+  top: 150px;
   width: 90%;
+  @include phone {
+    top: 190px;
+  }
+}
+
+#weather-rows {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 80%;
+  @include tablet { 
+    width: 90%;
+  }
+  @include phone { 
+    width: 100%;
+  }
+}
+
+.weather-row {
+  margin-left: 10%;
+  display: flex;
+  flex-direction: row;
+  background-color: $sky-blue;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  @include tablet { 
+    width: 100%;
+  }
+}
+
+.col {
+  @include phone { margin-right: 5%; }
+  margin-right: 15%;
+}
+
+.img-container {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+}
+
+div > img {
+  height: 100%;
 }
