@@ -6,7 +6,7 @@ const WeatherDayCard = (props) => {
   const { date, max, min, precipitation, i } = props;
 
   // Refine fields to display
-  const precipPercent = precipitation*100;
+  const precipPercent = Math.round(precipitation*100);
   const weekday = (i===0) ? 'Today' : date.slice(0,3);
   const day = date.slice(4, 10);
 
